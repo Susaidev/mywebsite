@@ -120,6 +120,10 @@ body {
     max-width: var(--max-width);
 }
 
+p {
+    margin: auto;
+    padding: 20px 0;
+}
 
 table {
     display: flex;
