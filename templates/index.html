@@ -1,7 +1,65 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h1 class="title">
-  This is my blog made with Zola.
-</h1>
-{% endblock content %}
+{% block bio %}
+<section class="bio">
+    <div class="content">
+      <h1>Toyakki's minimal portfolio</h1>
+
+      <p class="intro"> 
+        Welcome to my minimal portfolio. My name is Tohya. I am a data engineering Co-Op at Sanofi. I am primarily interested in developing a secure and reliable full-stack application and data architecture. I love spending some time reading awesome data engineering repos and each OSS code.
+      </p>
+      
+      <p>
+        Aside from tech, I love travelling. Here are some nice pics I took:
+        <div class="travels">
+            <div class="travels-inner">
+              <!-- "{{ get_url(path='images/pic.jpg') }}" -->
+                <img class="travel-place" src="{{ get_url(path='assets/travels/fuji.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/green.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/hawai.JPG') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/lake.jpg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/montreal_cath.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/mt_royal.JPG') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/otawa.jpg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/radio_tower.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/kiyomizu.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/london.jpeg') }}">
+            </div>
+            
+            <div aria-hidden="true" class="travels-inner">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/fuji.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/green.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/hawai.JPG') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/lake.jpg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/montreal_cath.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/mt_royal.JPG') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/otawa.jpg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/radio_tower.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/kiyomizu.jpeg') }}">
+                <img class="travel-place" src="{{ get_url(path='assets/travels/london.jpeg') }}">
+            </div>
+        </div>
+
+      </p>
+
+      <p>
+        <span class="contact-emph">You are interested in data engineering or OSS? Let's talk!</span>
+        <table>
+            <tr>
+                <td>discord: </td>
+                <td>Toyakki</td>
+            </tr>
+        </table>
+        
+        <table>
+            <tr>
+                <td>email: </td>
+                <td>t.tanemura@mail.utoronto.ca</td>
+            </tr>
+        </table>
+        
+      </p>
+
+    </div>
+</section>
+{% endblock bio %}
