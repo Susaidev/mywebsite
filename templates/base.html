@@ -15,7 +15,7 @@
   <nav class="navbar">
     <ul class="nav-links">
       <li class="links"><a href="{{ get_url(path='@/homepage.md') }}">Home</a></li>
-      <li class="links"><a href="{{ get_url(path='@/projects.md') }}">Projects</a></li>
+      <!-- <li class="links"><a href="{{ get_url(path='@/projects.md') }}">Projects</a></li> -->
       <li class="links"><a href="{{ get_url(path='@/blogs.md') }}">Blogs</a></li>
       <li class="links"><a href="#">CV</a></li>
     </ul>
@@ -24,6 +24,7 @@
   </nav>
   
   {% block bio %}{% endblock bio %}
+  {% block projects %}{% endblock projects %}
   {% block blogs %}{% endblock blogs %}
 </body>
 
