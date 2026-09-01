@@ -22,12 +22,17 @@
     --max-width: 1200px;
 }
 
-body {
+body, footer {
   font-family: "Open Sans", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-weight: 400;
   font-style: normal;
+}
+
+footer {
+    text-align: center;
+    padding: 0px
 }
 
 #dark-mode-toggle {
@@ -121,8 +126,8 @@ body {
 }
 
 p {
-    margin: auto;
-    padding: 20px 0;
+    margin: auto 0;
+    padding: 10px 0;
 }
 
 table {
@@ -169,4 +174,10 @@ table {
     100% {
         transform: translateX(-100%);
     }
+}
+
+.zola-bold {
+    font-weight: 300;
+    color: #a84b11;
+    text-decoration-line: none;
 }
