@@ -163,7 +163,7 @@ table {
     gap: 20px;
     padding-right: 20px;
     will-change: transform;
-    animation: scrolling 50s linear infinite;
+    animation: scrolling 100s linear infinite;
 }
 
 @keyframes scrolling {
