@@ -12,6 +12,7 @@
     --link-color: blue;
     --link-hover: darkgray;
     --max-width: 1200px;
+    --link: #ff7f50;
 }
 
 :has(#dark-mode-toggle:checked) {
@@ -20,6 +21,7 @@
     --link-color: skyblue;
     --link-hover: lightgray;
     --max-width: 1200px;
+    --link:  darkgray;
 }
 
 body, footer {
@@ -32,7 +34,7 @@ body, footer {
 
 footer {
     text-align: center;
-    padding: 0px
+    padding: 40px;
 }
 
 #dark-mode-toggle {
@@ -86,7 +88,6 @@ footer {
 
 .nav-links a {
     color: var(--link-color);
-    text-decoration: none;
     font-size: 20px;
     font-weight: 500;
     transition: 0.3s;
@@ -112,13 +113,11 @@ footer {
     }
 }
 
-.bio {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bio, .blog {
     text-align: center;
     margin-top: 20px;
 }
+
 .content {
     width: 100%;
     min-width: 0;
@@ -174,6 +173,36 @@ table {
     100% {
         transform: translateX(-100%);
     }
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+    max-width: var(--max-width);
+}
+
+.project {
+    border-radius: 20px;
+    border: 2px solid var(--text-color);
+    overflow: hidden;
+    max-width: 400px;
+    margin: auto;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.proj-link {
+    color: var(--link);
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
 }
 
 .zola-bold {
