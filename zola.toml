@@ -11,6 +11,7 @@ taxonomies = [
     { name = "tags", feed = true},
 ]
 
+taxonomy_root = "blog-posts"
 [markdown]
 
 [markdown.highlighting]
