@@ -114,6 +114,9 @@ footer {
 }
 
 .bio, .blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     margin-top: 20px;
 }
@@ -178,8 +181,9 @@ table {
 .projects {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 25px;
     max-width: var(--max-width);
 }
