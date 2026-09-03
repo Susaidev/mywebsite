@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block bio %}
+{% block content %}
 <section class="bio">
     <div class="content">
       <h1>Tohya's minimal portfolio</h1>
@@ -32,10 +32,7 @@
 
     </div>
 </section>
-{% endblock bio %}
 
-
-{% block projects %}
 <section class="projects">
   <div class="project">
     <img src="{{ get_url(path='assets/projects/hddviz.jpeg') }}" alt="hddviz">
@@ -51,4 +48,4 @@
     <a class="proj-link" href="https://github.com/lungerjo/DeepEmotion" target="_blank" rel="noopener noreferrer">Source code</a>
   </div>
 </section>
-{% endblock projects %}
+{% endblock content %}
