@@ -23,7 +23,7 @@
     --link-color: skyblue;
     --link-hover: lightgray;
     --max-width: 1200px;
-    --link:  darkgray;
+    --link:  #0A84FF;
 }
 
 /* Base page settings */
@@ -196,6 +196,7 @@ table {
     padding: 1rem;
     font-size: 1rem;
     font-weight: bold;
+    text-decoration: none;
     color: var(--link);
 }
 
