@@ -34,7 +34,7 @@
         </div>
         I am planning to put both technical and non-technical blogs for my clarity and for you. Blogs are coming soon!!
     </p>
-    <!-- <ul>
+    {# <ul>
     {%- for page in section.pages %}
         <li>
             <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
@@ -42,11 +42,11 @@
 
             <p>
             {%- for tag in page.taxonomies.tags %}
-                <a href="{{ get_taxonomy_url(kind='tags', term=tag) | safe }}">{{ tag }}</a>
+                <a href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}">{{ tag }}</a>
             {% endfor %}
             </p>
         </li>
     {% endfor %}
-    </ul> -->
+    </ul> #}
 </section>
 {% endblock content %}
