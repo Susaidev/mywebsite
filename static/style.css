@@ -125,7 +125,7 @@ footer {
 }
 
 /* Main content in index.html */
-.bio {
+.bio, .blog {
     text-align: center;
     margin-top: 1.25rem;
     display: flex;
@@ -162,7 +162,7 @@ table {
     margin: 3rem;
 }
 
-.project {
+.project, .blog-post {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0.125rem 0.5rem 0 var(--text-color);
@@ -257,17 +257,8 @@ table {
     }
 }
 
-.blog-content {
-    /* width: 100%;
-    min-width: 0;
-    max-width: var(--max-width); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .blog-post {
-    margin: 10rem;
+    margin: 2rem 2rem;
 }
 
 .post-title {
