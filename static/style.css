@@ -172,7 +172,7 @@ table {
 }
 
 .proj-img {
-    height: 15rem;
+    height: auto;
     width: 100%;
     background-position: center;
     background-size: cover;
