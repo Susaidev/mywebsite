@@ -172,7 +172,7 @@ table {
 }
 
 .proj-img {
-    height: auto;
+    height: 15rem;
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -186,7 +186,6 @@ table {
 .proj-desc {
     margin: 1rem 2rem;
     font-size: 0.9rem;
-    flex-grow: 1;
 }
 
 
@@ -197,6 +196,10 @@ table {
     padding: 1rem;
     font-size: 1rem;
     font-weight: bold;
+    color: var(--link);
+}
+
+.foresters-link {
     color: var(--link);
 }
 
