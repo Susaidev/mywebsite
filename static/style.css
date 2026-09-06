@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* Before dark mode */
 :root {
     --bg-color: #f8fafc;
     --text-color: #1e293b;
@@ -15,6 +16,7 @@
     --link: #ff7f50;
 }
 
+/* After dark mode */
 :has(#dark-mode-toggle:checked) {
     --bg-color: #0f172a;
     --text-color: #e2e8f0;
@@ -24,12 +26,14 @@
     --link:  darkgray;
 }
 
+/* Base page settings */
 body, footer {
   font-family: "Open Sans", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-weight: 400;
   font-style: normal;
+  box-sizing: border-box;
 }
 
 footer {
@@ -37,6 +41,13 @@ footer {
     padding: 40px;
 }
 
+.zola-bold {
+    font-weight: 300;
+    color: #a84b11;
+    text-decoration-line: none;
+}
+
+/* Dark mode settings */
 #dark-mode-toggle {
     display: none;
 }
@@ -70,6 +81,7 @@ footer {
   transform: translateX(30px);
 }
 
+/* Navigation bar in base.html */
 .navbar {
     width: 90%;
     max-width: var(--max-width);
@@ -113,12 +125,13 @@ footer {
     }
 }
 
-.bio, .blog {
+/* Main content in index.html */
+.bio {
+    text-align: center;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    margin-top: 20px;
 }
 
 .content {
@@ -136,12 +149,48 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto 0;
-    padding-top: 10px;
 }
 
 .contact-emph {
     font-weight: 700;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 2rem;
+    /* max-width: var(--max-width); */
+}
+
+.project {
+    box-shadow: 0px 2px 8px 0px var(--text-color);
+    text-align: center;
+    border-radius: 1rem;
+    position: relative;
+    /* overflow: hidden; */
+    /* max-width: 400px; */
+}
+
+.project, img {
+    width: 30%;   
+}
+
+.proj-link {
+    color: var(--link);
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+/* Blog page  */
+.blog {
+    text-align: center;
+    margin-top: 20px;
 }
 
 .travels {
@@ -176,41 +225,4 @@ table {
     100% {
         transform: translateX(-100%);
     }
-}
-
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    max-width: var(--max-width);
-}
-
-.project {
-    border-radius: 20px;
-    border: 2px solid var(--text-color);
-    overflow: hidden;
-    max-width: 400px;
-    margin: auto;
-    padding-bottom: 20px;
-    text-align: center;
-}
-
-.proj-link {
-    color: var(--link);
-}
-
-.project img {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    object-fit: cover;
-}
-
-.zola-bold {
-    font-weight: 300;
-    color: #a84b11;
-    text-decoration-line: none;
 }
