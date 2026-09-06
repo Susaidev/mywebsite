@@ -33,7 +33,6 @@ body, footer {
   color: var(--text-color);
   font-weight: 400;
   font-style: normal;
-  box-sizing: border-box;
 }
 
 footer {
@@ -165,26 +164,30 @@ table {
 
 .project {
     box-shadow: 0px 2px 8px 0px var(--text-color);
-    text-align: center;
     border-radius: 1rem;
-    position: relative;
-    /* overflow: hidden; */
-    /* max-width: 400px; */
+    text-align: center;
+    position: relative; 
 }
 
-.project, img {
-    width: 30%;   
+.proj-img {
+    height: auto;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+
+/* .proj-name {
+    font-size: 1.5rem;
+}
+
+.proj-desc {
+    margin: 1rem 2rem;
+    font-size: 0.9rem;
+} */
 
 .proj-link {
     color: var(--link);
-}
-
-.project img {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    object-fit: cover;
 }
 
 /* Blog page  */
