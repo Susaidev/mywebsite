@@ -12,7 +12,7 @@
     --toggle-circle: #ffffff;
     --link-color: blue;
     --link-hover: darkgray;
-    --max-width: 1200px;
+    --max-width: 75rem;
     --link: #ff7f50;
 }
 
@@ -22,7 +22,7 @@
     --text-color: #e2e8f0;
     --link-color: skyblue;
     --link-hover: lightgray;
-    --max-width: 1200px;
+    --max-width: 75rem;
     --link:  #0A84FF;
 }
 
@@ -37,7 +37,7 @@ body, footer {
 
 footer {
     text-align: center;
-    padding: 40px;
+    padding: 2.5rem;
 }
 
 .zola-bold {
@@ -53,13 +53,13 @@ footer {
 
 /* .btn */
 .toggle {
-    width: 60px;
-    height: 30px;
+    width: 3.75rem;
+    height: 1.875rem;
     background-color: var(--toggle-bg);
-    border-radius: 30px;
+    border-radius: 1.875rem;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 1.25rem;
+    right: 1.25rem;
     cursor: pointer;
     transition: background 0.3s;
 }
@@ -67,17 +67,17 @@ footer {
 .toggle::before {
   content: "";
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 24px;
-  height: 24px;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background: var(--toggle-circle);
   border-radius: 50%;
   transition: transform 0.3s;
 }
 
 #dark-mode-toggle:checked + .toggle::before {
-  transform: translateX(30px);
+  transform: translateX(1.875rem);
 }
 
 /* Navigation bar in base.html */
@@ -85,7 +85,7 @@ footer {
     width: 90%;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 1.25rem 0;
 }
 
 .nav-links {
@@ -93,13 +93,13 @@ footer {
     justify-content: center;
     align-items: center;
     list-style: none;
-    gap: 30px;
-    padding: 0 20px;
+    gap: 1.875rem;
+    padding: 0 1.25rem;
 }
 
 .nav-links a {
     color: var(--link-color);
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     transition: 0.3s;
 }
@@ -127,7 +127,7 @@ footer {
 /* Main content in index.html */
 .bio {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +141,7 @@ footer {
 
 p {
     margin: auto 0;
-    padding: 10px 0;
+    padding: 0.625rem 0;
 }
 
 table {
@@ -156,7 +156,7 @@ table {
 
 .projects {
     display: grid;
-    grid-template-columns: minmax(300px, 1fr);
+    grid-template-columns: minmax(18.75rem, 1fr);
     justify-content: center;
     gap: 2rem;
     margin: 3rem;
@@ -165,7 +165,7 @@ table {
 .project {
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 2px 8px 0px var(--text-color);
+    box-shadow: 0 0.125rem 0.5rem 0 var(--text-color);
     border-radius: 1rem;
     text-align: center;
     overflow: hidden; 
@@ -220,15 +220,15 @@ table {
 /* Blog page  */
 .blog {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 .travels {
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 1.25rem 0;
     display: flex;
     overflow: hidden;
-    max-width: 1200px;
+    max-width: var(--max-width);
 
     &:hover .travels-inner {
         animation-play-state: paused;
@@ -236,14 +236,14 @@ table {
 }
 
 .travel-place {
-    width: 300px;
-    height: 300px;
+    width: 18.75rem;
+    height: 18.75rem;
 }
 
 .travels-inner {
     display: flex;
-    gap: 20px;
-    padding-right: 20px;
+    gap: 1.25rem;
+    padding-right: 1.25rem;
     will-change: transform;
     animation: scrolling 100s linear infinite;
 }
