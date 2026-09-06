@@ -10,7 +10,7 @@
     --text-color: #1e293b;
     --toggle-bg: #94a3b8;
     --toggle-circle: #ffffff;
-    --link-color: blue;
+    --nav-link-color: blue;
     --link-hover: darkgray;
     --max-width: 75rem;
     --link: #ff7f50;
@@ -20,7 +20,7 @@
 :has(#dark-mode-toggle:checked) {
     --bg-color: #0f172a;
     --text-color: #e2e8f0;
-    --link-color: skyblue;
+    --nav-link-color: skyblue;
     --link-hover: lightgray;
     --max-width: 75rem;
     --link:  #0A84FF;
@@ -98,7 +98,7 @@ footer {
 }
 
 .nav-links a {
-    color: var(--link-color);
+    color: var(--nav-link-color);
     font-size: 1.25rem;
     font-weight: 500;
     transition: 0.3s;
@@ -255,4 +255,21 @@ table {
     100% {
         transform: translateX(-100%);
     }
+}
+
+.blog-content {
+    /* width: 100%;
+    min-width: 0;
+    max-width: var(--max-width); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-post {
+    margin: 10rem;
+}
+
+.post-title {
+    text-decoration: none;
 }
