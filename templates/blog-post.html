@@ -7,9 +7,9 @@
     <p>{{ page.description }}</p>
 
     <ul>
-        {%- for tag in page.taxonomies.tags %}
+        <!-- {%- for tag in page.taxonomies.tags %}
             <a href="{{ get_taxonomy_url(kind='tags', term=tag) | safe }}">{{ tag }}</a>
-        {%- endfor %}
+        {%- endfor %} -->
     </ul>
     {{ page.content | safe }}
 
