@@ -40,35 +40,23 @@
             </div>
         </div>
         <p>
-            I am planning to put both technical and non-technical blogs for my understanding and for you. Blogs are coming soon!!
+            I am planning to put both technical and non-technical blogs for my understanding and for your entertainment. Blogs are coming soon!!
         </p>
-        <ul class="blog-posts"> 
-        <!-- {%- for page in section.pages %}
-            <li class="blog-post">
-                <span class="post-meta"> {{ page.date }} </span>
-                <h2 class="post-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                {% if page.description %}<p>{{ page.description }}</p>{% endif %}
-    
-                <p>
-                {%- for tag in page.taxonomies.tags %}
-                    <a href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}" class="blog-tags">{{ tag }}</a>
-                {% endfor %}
-                </p>
-            </li>
-            <li class="blog-post">
-                <span class="post-meta"> {{ page.date }} </span>
-                <h2 class="post-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-                {% if page.description %}<p>{{ page.description }}</p>{% endif %}
-    
-                <p>
-                {%- for tag in page.taxonomies.tags %}
-                    <a href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}" class="blog-tags">{{ tag }}</a>
-                {% endfor %}
-                </p>
-            </li>
-    
-        {% endfor %} -->
+
+        {% set tags = get_taxonomy(kind="tags") %}
+        <nav class="tag-filter" aria-label="Filter posts by tag">
+            <a href="{{ section.permalink | safe }}" class="tag-pill tag-pill-current">All</a>
+            {% for term in tags.items %}
+                <a href="{{ term.permalink | safe }}" class="tag-pill">{{ term.name }}</a>
+            {% endfor %}
+        </nav>
+
+        <ul class="blog-posts">
+            {% for page in section.pages %}
+                {% include "partials/post-card.html" %}
+            {% endfor %}
         </ul>
+
     </div>
 </section>
 {% endblock content %}

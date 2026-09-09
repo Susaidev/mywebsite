@@ -27,7 +27,7 @@
 }
 
 /* Base page settings */
-body, footer {
+body, body > footer {
   font-family: "Open Sans", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -35,7 +35,7 @@ body, footer {
   font-style: normal;
 }
 
-footer {
+body > footer {
     text-align: center;
     padding: 2.5rem;
 }
@@ -223,6 +223,10 @@ table {
     margin-top: 1.25rem;
 }
 
+.blog .content {
+    padding: 0 1rem;
+}
+
 .travels {
     margin: 0 auto;
     padding: 1.25rem 0;
@@ -257,10 +261,273 @@ table {
     }
 }
 
-.blog-post {
-    margin: 2rem 2rem;
+.blog-heading {
+    margin: 2rem 0 1rem;
+    font-size: 2rem;
+}
+
+.tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 2rem auto;
+    max-width: var(--max-width);
+}
+
+.tag-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.45rem 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent);
+    border-radius: 999px;
+    color: var(--text-color);
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.tag-pill-current {
+    border-color: color-mix(in srgb, var(--text-color) 45%, transparent);
+}
+
+.tag-count {
+    margin-left: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.blog-posts {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: var(--max-width);
+    padding: 0;
+    list-style: none;
+}
+
+.post-card {
+    text-align: left;
+}
+
+.post-card article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 18rem;
+    padding: 2.5rem;
+    border: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent);
+    border-radius: 5rem;
+    background: color-mix(in srgb, var(--bg-color) 92%, var(--text-color));
 }
 
 .post-title {
+    margin-left: 0;
+    font-size: 2rem;
+    line-height: 1.15;
+}
+
+.post-title a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
     text-decoration: none;
+}
+
+.post-card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.post-desc {
+    margin-top: 2.75rem;
+    padding: 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-top: auto;
+    padding-top: 3rem;
+    border-top: 1px solid color-mix(in srgb, var(--text-color) 18%, transparent);
+}
+
+.post-date {
+    font-size: 1.1rem;
+    font-weight: 700;
+    opacity: 0.65;
+}
+
+.post-tags {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+/* Individual blog posts */
+.article-content {
+    width: calc(100% - 2rem);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.article-hero {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 4rem 0 3rem;
+    text-align: center;
+}
+
+.article-hero h1 {
+    max-width: 54rem;
+    margin: 1.25rem auto 1.75rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 5rem;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0;
+}
+
+.article-date,
+.article-meta,
+.article-description {
+    color: color-mix(in srgb, var(--text-color) 68%, transparent);
+    font-weight: 700;
+}
+
+.article-date {
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 1.05rem;
+}
+
+.article-tags {
+    justify-content: center;
+}
+
+.article-tags .tag-pill {
+    min-height: 2rem;
+    padding: 0.35rem 1rem;
+    background: color-mix(in srgb, var(--text-color) 10%, transparent);
+}
+
+.article-description {
+    max-width: 42rem;
+    margin: 1.75rem auto 0;
+    padding: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.article-body {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+.article-body p {
+    padding: 0.8rem 0;
+    text-align: center;
+    font-size: 1.08rem;
+    line-height: 1.85;
+}
+
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+    margin: 2.5rem 0 0.75rem;
+    text-align: center;
+    line-height: 1.25;
+}
+
+.article-body h2 {
+    font-size: 2rem;
+}
+
+.article-body h3 {
+    font-size: 1.55rem;
+}
+
+.article-body ul,
+.article-body ol {
+    display: inline-block;
+    margin: 1rem auto;
+    padding-left: 1.5rem;
+    text-align: left;
+}
+
+.article-body img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 2rem auto;
+}
+
+@media screen and (max-width: 640px) {
+    .post-card article {
+        min-height: 0;
+        padding: 1.35rem;
+        border-radius: 1.5rem;
+    }
+
+    .post-desc {
+        margin-top: 1.5rem;
+    }
+
+    .post-title {
+        font-size: 1.8rem;
+    }
+
+    .post-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .post-tags {
+        justify-content: flex-start;
+    }
+
+    .article-tags {
+        justify-content: center;
+    }
+
+    .article-hero {
+        padding: 3rem 0 2.25rem;
+    }
+
+    .article-hero h1 {
+        font-size: 3rem;
+    }
+
+    .article-meta {
+        gap: 0.55rem;
+        font-size: 1rem;
+    }
+
+    .article-description,
+    .article-body p {
+        font-size: 1rem;
+    }
 }

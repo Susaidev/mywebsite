@@ -1,0 +1,31 @@
+<li class="post-card">
+    <article>
+        <h2 class="post-title">
+            <a href="{{ page.permalink | safe }}" class="post-card-link">
+                <span>{{ page.title }}</span>
+            </a>
+        </h2>
+
+        {% if page.description %}
+            <p class="post-desc">{{ page.description }}</p>
+        {% endif %}
+
+        <footer class="post-footer">
+            <time class="post-date" datetime="{{ page.date }}">
+                {{ page.date | date(format="%B %-d, %Y") }}
+            </time>
+            {% set all_tags = get_taxonomy(kind="tags") %}
+            <ul class="post-tags" aria-label="Post tags">
+                {% for tag in page.taxonomies.tags %}
+                    {% for term in all_tags.items %}
+                        {% if term.name == tag %}
+                            <li>
+                                <a href="{{ term.permalink | safe }}" class="tag-pill">{{ tag }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </footer>
+    </article>
+</li>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+<!-- Show a tag index page -->
+{% block content %}
+<section class="blog">
+    <div class="content">
+        <h1 class="blog-heading">Tags</h1>
+
+        <nav class="tag-filter" aria-label="Post tags">
+            <a href="{{ get_url(path='@/blog-posts/_index.md') }}" class="tag-pill">All</a>
+            {% for term in terms %}
+                <!-- Each term gets a perma link like /tags/WebApp -->
+                <a href="{{ term.permalink | safe }}" class="tag-pill">
+                    {{ term.name }}
+                    <span class="tag-count">{{ term.page_count }}</span>
+                </a>
+            {% endfor %}
+        </nav>
+    </div>
+</section>
+{% endblock content %}
