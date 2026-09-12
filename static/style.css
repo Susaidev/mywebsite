@@ -14,9 +14,13 @@
     --link-hover: darkgray;
     --max-width: 75rem;
     --link: #ff7f50;
+    --source-button-bg: #2563eb;
+    --source-button-text: #ffffff;
+    --source-button-hover: #1d4ed8;
 }
 
 /* After dark mode */
+:root[data-theme="dark"],
 :has(#dark-mode-toggle:checked) {
     --bg-color: #0f172a;
     --text-color: #e2e8f0;
@@ -24,6 +28,9 @@
     --link-hover: lightgray;
     --max-width: 75rem;
     --link:  #0A84FF;
+    --source-button-bg: #93c5fd;
+    --source-button-text: #0f172a;
+    --source-button-hover: #bfdbfe;
 }
 
 /* Base page settings */
@@ -172,7 +179,7 @@ table {
 }
 
 .proj-img {
-    height: auto;
+    height: 100%;
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -192,12 +199,19 @@ table {
 .proj-link {
     margin-top: auto;
     width: 100%;
-    background-color: var(--text-color);
+    background-color: var(--source-button-bg);
     padding: 1rem;
     font-size: 1rem;
     font-weight: bold;
     text-decoration: none;
-    color: var(--link);
+    color: var(--source-button-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.proj-link:hover,
+.proj-link:focus-visible {
+    background-color: var(--source-button-hover);
+    color: var(--source-button-text);
 }
 
 .foresters-link {
@@ -231,25 +245,27 @@ table {
     margin: 0 auto;
     padding: 1.25rem 0;
     display: flex;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
     max-width: var(--max-width);
-
-    &:hover .travels-inner {
-        animation-play-state: paused;
-    }
 }
 
 .travel-place {
     width: 18.75rem;
     height: 18.75rem;
+    scroll-snap-align: center;
 }
 
 .travels-inner {
+    flex: 0 0 auto;
     display: flex;
     gap: 1.25rem;
     padding-right: 1.25rem;
     will-change: transform;
-    animation: scrolling 100s linear infinite;
+    animation: scrolling 50s linear infinite;
 }
 
 @keyframes scrolling {
