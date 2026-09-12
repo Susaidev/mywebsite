@@ -245,22 +245,17 @@ table {
     margin: 0 auto;
     padding: 1.25rem 0;
     display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: x proximity;
-    scrollbar-width: thin;
+    overflow: hidden;
     max-width: var(--max-width);
 }
 
 .travel-place {
     width: 18.75rem;
     height: 18.75rem;
-    scroll-snap-align: center;
+    object-fit: cover;
 }
 
 .travels-inner {
-    flex: 0 0 auto;
     display: flex;
     gap: 1.25rem;
     padding-right: 1.25rem;
