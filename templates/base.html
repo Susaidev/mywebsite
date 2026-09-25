@@ -5,6 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        (() => {
+            try {
+                if (localStorage.getItem("theme") === "dark") {
+                    document.documentElement.dataset.theme = "dark";
+                }
+            } catch (_) {}
+        })();
+    </script>
     <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +36,31 @@
   <footer>
     Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener noreferrer" class="zola-bold">Zola</a>
   </footer>
+  <script>
+    (() => {
+      const toggle = document.getElementById("dark-mode-toggle");
+
+      if (!toggle) {
+        return;
+      }
+
+      try {
+        toggle.checked = localStorage.getItem("theme") === "dark";
+      } catch (_) {
+        toggle.checked = document.documentElement.dataset.theme === "dark";
+      }
+
+      document.documentElement.dataset.theme = toggle.checked ? "dark" : "";
+
+      toggle.addEventListener("change", () => {
+        document.documentElement.dataset.theme = toggle.checked ? "dark" : "";
+
+        try {
+          localStorage.setItem("theme", toggle.checked ? "dark" : "light");
+        } catch (_) {}
+      });
+    })();
+  </script>
 </body>
 
 </html>
