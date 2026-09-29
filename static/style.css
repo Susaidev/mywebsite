@@ -14,7 +14,8 @@
     --link-hover: darkgray;
     --max-width: 75rem;
     --link: #ff7f50;
-    --source-button-bg: #2563eb;
+    --article-link: #1d4ed8;
+    --source-button-bg: #20a8a4;
     --source-button-text: #ffffff;
     --source-button-hover: #1d4ed8;
 }
@@ -28,6 +29,7 @@
     --link-hover: lightgray;
     --max-width: 75rem;
     --link:  #0A84FF;
+    --article-link: #60a5fa;
     --source-button-bg: #93c5fd;
     --source-button-text: #0f172a;
     --source-button-hover: #bfdbfe;
@@ -277,6 +279,10 @@ table {
     font-size: 2rem;
 }
 
+.blog-filter-link {
+    color: var(--article-link);
+}
+
 .tag-filter {
     display: flex;
     flex-wrap: wrap;
@@ -486,6 +492,10 @@ table {
     margin: 1rem auto;
     padding-left: 1.5rem;
     text-align: left;
+}
+
+.article-body a {
+    color: var(--article-link);
 }
 
 .article-body img {
