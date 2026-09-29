@@ -38,16 +38,11 @@
             </div>
         </div>
         <p>
-            I am planning to put both technical and non-technical blogs for my understanding and for your entertainment. Blogs are coming soon!!
+            I am planning to put more technical and non-technical blogs for my understanding and for your entertainment.
         </p>
-
-        {% set tags = get_taxonomy(kind="tags") %}
-        <nav class="tag-filter" aria-label="Filter posts by tag">
-            <a href="{{ section.permalink | safe }}" class="tag-pill tag-pill-current">All</a>
-            {% for term in tags.items %}
-                <a href="{{ term.permalink | safe }}" class="tag-pill">{{ term.name }}</a>
-            {% endfor %}
-        </nav>
+        <p>
+            <a class="blog-filter-link" href="tags/">Click here if you want to filter blogs by tag</a>
+        </p>
 
         <ul class="blog-posts">
             {% for page in section.pages %}
