@@ -18,7 +18,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <title>Tohya's website</title>
+    <!-- <title>Tohya Tanemura</title> -->
+     {% if current_path == "/" %}
+    <title>Tohya Tanemura </title>
+    <meta name="description" content="Portfolio and technical writing by Tohya Tanemura, a software and data engineer.">
+    {% elif page is defined %}
+        <title>{{ page.title }} | Tohya Tanemura</title>
+        <meta name="description" content="{{ page.description }}">
+    {% elif section is defined %}
+        <title>{{ section.title }} | Tohya Tanemura</title>
+        {% if section.description %}
+            <meta name="description" content="{{ section.description }}">
+        {% endif %}
+    {% else %}
+        <title>Tohya Tanemura</title>
+    {% endif %}
 </head>
 <body>
   <nav class="navbar">
