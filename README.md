@@ -1,5 +1,5 @@
-# TODOs
-1. Unrelying on others' themes.
-2. Zoom-in animations for bio. 
-3. Neat animations for images.
-4. Blog/ CV/ Bio/ Projects/ navigation bars.
+# Three stage blog writing
+1. Write a draft
+2. Use two LLMs to review my draft
+3. Finalize draft
+4. Deploy

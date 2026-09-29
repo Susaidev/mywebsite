@@ -116,8 +116,4 @@ Work:
 Thank you for reading this blog all the way. 
 I admit that this review is not comprehensive enough and outdated. I did not touch security at all, and I have never touched claude code. I intentionally avoided those parts as it is out of my expertise. But I hope you find it entertaining!
 
-All words in this post are manually written by me. 
-
-I hope your technical expertise shines in this pinnacle of LLM era.
-
 Feel free to reach out to me if you have any opinions.
