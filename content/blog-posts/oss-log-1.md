@@ -131,5 +131,5 @@ To prevent this, I implemented the following:
 ## Wrap-up
 That is it! I have never done a proper open-source contribution before so my work might not look impressive. But I am proud of my work, which led to a merged PR. I stayed up late to see the maintainer merge my PR, and once I saw it, I got puuuuumped. 
 
-I have taken another issue from the same repo, so I will definetly keep updating this series once I made decent contribution.
+I have taken another issue from the same repo, so I will definetly keep updating this series once I made a decent contribution again.
 See you next month!
