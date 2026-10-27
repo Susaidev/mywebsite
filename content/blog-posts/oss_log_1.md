@@ -15,8 +15,9 @@ That is exactly why I have started this series, **OSS contribution log**. Every 
 
 ## What is the software you contributed to?
 DRT is a reverse ETL CLI tool that supports multiple data warehouse sources and data service destinations. A reverse ETL is just a data transformation and transportation logic to move useful, processed data in data warehouses to downstream software services such as CRM, Redis, REST APIs, and Message queues. There are already popular options such as High Touch and Census, but both are closed-source. This tool serves as their open-source alternative and is cli-oriented so modern capable LLM agents can use this tool to perform reverse ETL process easily. 
+This project was perfect for me since I have always contributed to data engineering related toolings.
 
-## My contributions in a nutshell
+## My contribution in a nutshell
 I added an Amazon Simple Queue Service (SQS) as another data destination. After client developers modifies a YAML file related to SQS configuration, they just need to call a like the following:
 ```python
 event_data = [
@@ -28,7 +29,7 @@ drt.load(event_data)
 ```
 Then it's done! Client developers can confirm that the load of event data to the selected queue. Here is the detail of [my merged PR](https://github.com/drt-hub/drt/pull/1212).
 
-### Deep dive
+## Deep dive
 Under the hood, there are multiple steps involved:
 1. Read a configuration YAML file, and clean event data.
 2. Validate the client's input data.
@@ -68,7 +69,33 @@ After parsing YAML file, my coding logic will convert records into **entries**:
 
 The collection of entries create a **batch**, which is the expected input of [SendMessageBatch API](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html) for SQS. 
 
-#### **Software design decisions and considerations:**
+If the api call is successful, it returns an output like the following:
+```json
+HTTP/1.1 200 OK
+x-amzn-RequestId: <requestId>
+Content-Length: <PayloadSizeBytes>
+Date: <Date>
+Content-Type: application/x-amz-json-1.0
+{
+   "Failed": [],
+    "Successful": [
+        {
+            "Id": "test_msg_001",
+            "MD5OfMessageBody": "0e024d309850c78cba5eabbeff7cae71",
+            "MessageId": "f4eb349f-cd33-4bc4-bdc2-e557c900d41d"
+        },
+        {
+            "Id": "test_msg_002",
+            "MD5OfMessageAttributes": "8ef4d60dbc8efda9f260e1dfd09d29f3",
+            "MD5OfMessageBody": "27118326006d3829667a400ad23d5d98",
+            "MessageId": "1dcfcd50-5a67-45ae-ae4c-1c152b5effb9"
+        }
+    ]
+}
+```
+Finally, my logic also processes this API response and returns the list of messages that are delivered/not delivered from CLI.
+
+#### Challenges
 The contribution sounds trivial until you hit multiple constraints. Here are some interesting fixes that I encountered:
 1. YAML config data validation 
 
@@ -85,7 +112,7 @@ For per-entry failure within a batch, here are multiple possible failures -> fix
 - Message could not be sent such as due to a client-side network failure. -> use a built-in retry/backoff logic in the codebase.
 - Retry is exhausted and a batch cannot be sent -> try sending the next batch.
 
-Another funny thing to point out is the return response of `SendMessageBatch`. The successful response of this method (HTTP code 200) does NOT guarantee that message is sent successfully. Instead, it returns a JSON that contains which data item is successfully sent or not. You can see the [API reference documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html) for more details. Based on this response format, my logic also needed to return the number of successful and failed enqueued items to the sync engine, which eventually showed the result to a client developer. Fortunately, the maintainer of this repo already created counting logic for this so all I did was to call the pre-existing class. 
+Maybe you have noticed already from the previous section, but the return response of `SendMessageBatch` has a funny format. The successful response of this method (HTTP code 200) does NOT guarantee that message is sent successfully. Instead, it returns a JSON that contains which data item is successfully sent or not. You can see the [API reference documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html) for more details. Based on this response format, my logic also needed to return the number of successful and failed enqueued items to the sync engine, which eventually showed the result to a client developer. Fortunately, the maintainer of this repo already created counting logic for this so all I did was to call the pre-existing class. 
 
 3. FIFO ordering
 
@@ -101,7 +128,7 @@ To prevent this, I implemented the following:
 2. **at most** one entry per `MessageGroupId` exists within a batch. 
 3. The batch with a permanent failure (e.g. retry exhaustion, server-side failure etc...) updates the `blocked_list` instance attribute, which is a set of `MessageGroupId` whose entry is not sent. If a new batch has an entry whose  `MessaeGroupId` is in `blocked_list`, my logic prevents such batch from being sent and flags `RowError`, and then moves to a next batch to process.
 
-### Wrap-up
+## Wrap-up
 That is it! I have never done a proper open-source contribution before so my work might not look impressive. But I am proud of my work, which led to a merged PR. I stayed up late to see the maintainer merge my PR, and once I saw it, I got puuuuumped. 
 
 I have taken another issue from the same repo, so I will definetly keep updating this series once I made decent contribution.
