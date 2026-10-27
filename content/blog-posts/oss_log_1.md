@@ -35,8 +35,8 @@ Under the hood, there are multiple steps involved:
 3. Turn the input data into SQS-compatible entry.
 4. Send batch of data with retry logic, with different failure modes.
 5. Give a response back to the drt's core engine. 
+Let me give a concrete example.
 
-**Record to entry data input conversion:** 
 Suppose you want to move processed customer data to CRM. Your data item might look like following:
 ```json
 {"event_id": "a1", "customer_id": 1, "action": "email"},
@@ -87,7 +87,7 @@ For per-entry failure within a batch, here are multiple possible failures -> fix
 
 Another funny thing to point out is the return response of `SendMessageBatch`. The successful response of this method (HTTP code 200) does NOT guarantee that message is sent successfully. Instead, it returns a JSON that contains which data item is successfully sent or not. You can see the [API reference documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html) for more details. Based on this response format, my logic also needed to return the number of successful and failed enqueued items to the sync engine, which eventually showed the result to a client developer. Fortunately, the maintainer of this repo already created counting logic for this so all I did was to call the pre-existing class. 
 
-1. FIFO ordering
+3. FIFO ordering
 
 Since I skip a batch that cannot be sent with the limited number of retries, there is a case where FIFO nature is violated. The case is when a failed batch contains an earlier entry and a successful batch contains a later entry within the same group. For example:
 ```json
